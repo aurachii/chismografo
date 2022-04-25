@@ -49,9 +49,9 @@ func main() {
 
 	mux.HandleFunc("/snippet", showSnippet)
 
-	//Registering the createSnippet function as the handler for the "/create" URL pattern
+	//Registering the createSnippet function as the handler for the "snippet/create" URL pattern
 
-	mux.HandleFunc("/create", createSnippet)
+	mux.HandleFunc("snippet/create", createSnippet)
 
 	// Start a new web server
 	log.Println("Starting server on :4000")
