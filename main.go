@@ -9,6 +9,14 @@ import (
 
 func home(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Bienvenido al chismografo, he de informarte que eres un chismoso"))
+
+	// This checks whether the current URL path exactly matches "/". If it doesn't call
+	// then it will send a 404 response to the client.
+
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
 }
 
 // Handler Function for Showing Snippets
