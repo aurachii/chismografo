@@ -8,7 +8,6 @@ import (
 // Handler Function for Home Page
 
 func home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Bienvenido al chismografo, he de informarte que eres un chismoso"))
 
 	// This checks whether the current URL path exactly matches "/". If it doesn't call
 	// then it will send a 404 response to the client.
@@ -17,6 +16,11 @@ func home(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
+
+	//This writes home page message
+
+	w.Write([]byte("Bienvenido al chismografo, he de informarte que eres un chismoso"))
+
 }
 
 // Handler Function for Showing Snippets
