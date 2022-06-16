@@ -9,12 +9,24 @@ import (
 
 // Define handlers
 
-// Response body handler (home page)
+// Home handler function
 
 func home(w http.ResponseWriter, r *http.Request){
 	w.Write([]byte("Bienvenido al Chismografo"))
 }
+// Show snippet handler function
 
+func showSnippet(w http.ResponseWriter, r *http.Request){
+
+	w.Write([]byte("Display an specific snippet"))
+}
+
+// Create snippet handler function
+
+func createSnippet(w http.ResponseWriter, r *http.Request){
+	
+	w.Write([]byte("Create a snippet"))
+}
 func main(){
 
 	//Initialize a new servemux
@@ -24,6 +36,14 @@ func main(){
 	//Register the home function as the handler for the "/" URL pattern
 
 	mux.HandleFunc("/",home)
+
+	//Register the show snippet function as the handler for the "/snippet" pattern
+
+	mux.HandleFunc("/snippet",showSnippet)
+
+	//Register the create snippet function as the handler for the "/snippet/create" pattern
+
+	mux.HandleFunc("/snippet/create",createSnippet)
 
 	// Start Server
 
