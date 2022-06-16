@@ -11,7 +11,7 @@ import (
 
 // Response body handler (home page)
 
-func home(w http.ResponseWritter, r *http.Request){
+func home(w http.ResponseWriter, r *http.Request){
 	w.Write([]byte("Bienvenido al Chismografo"))
 }
 
