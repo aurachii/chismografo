@@ -33,11 +33,14 @@ func showSnippet(w http.ResponseWriter, r *http.Request){
 
 func createSnippet(w http.ResponseWriter, r *http.Request){
 	
+	
 	// Restrict http request method to  POST 
 
 	if r.Method != "POST"{
-		w.WriteHeader(405)
-		w.Write([]byte("Method not Allowed"))
+
+		w.Header().Set("Allow","POST")
+		// Send non-200 status code 
+		http.Error(w,"Method not Allowed",405)
 		return
 	}
 
