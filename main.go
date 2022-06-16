@@ -12,6 +12,14 @@ import (
 // Home handler function
 
 func home(w http.ResponseWriter, r *http.Request){
+	
+	// Restrict the "/" pattern
+
+	if r.URL.Path != "/"{
+		http.NotFound(w,r)
+		return
+	}
+	
 	w.Write([]byte("Bienvenido al Chismografo"))
 }
 // Show snippet handler function
