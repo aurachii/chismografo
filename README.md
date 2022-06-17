@@ -1,4 +1,4 @@
 # chismografo
 
 
-Chismografo is a CRUD app.
+Chismografo is a CRUD app (in process).
