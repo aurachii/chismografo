@@ -42,7 +42,7 @@ func showSnippet(w http.ResponseWriter, r *http.Request){
 	}
 	
 	
-	fmt.Fprint(w,"Display a specific snipper with id %d...",id)
+	fmt.Fprint(w,"Display a specific snippet with ID ",id, "...")
 
 }
 
