@@ -3,8 +3,11 @@ package main
 // Import Packages 
 
 import (
+
+	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 // Define handlers
@@ -26,7 +29,21 @@ func home(w http.ResponseWriter, r *http.Request){
 
 func showSnippet(w http.ResponseWriter, r *http.Request){
 
-	w.Write([]byte("Display an specific snippet"))
+	
+	// Retrieve the id parameter from the URL query string and convert the string value into a integer
+
+	id,err:=strconv.Atoi(r.URL.Query().Get("id"))
+
+	//Check whether it contains a positive integer value
+
+	if err !=nil || id<1{
+		http.NotFound(w,r)
+		return
+	}
+	
+	
+	fmt.Fprint(w,"Display a specific snipper with id %d...",id)
+
 }
 
 // Create snippet handler function
